@@ -1,10 +1,19 @@
 package application;
 	
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ResourceBundle;
+
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
@@ -25,24 +34,25 @@ public class Main extends Application {
 			Image icon = new Image("sun.png");
 			stage.getIcons().add(icon);
 			stage.setTitle("Kindergarten");
-			stage.setFullScreen(true);
-			stage.setWidth(1200);
-			stage.setHeight(700);
+			stage.setFullScreen(false);
+			stage.setWidth(700);
+			stage.setHeight(500);
 			
 			Text text = new Text();
 			text.setText("Hoþgeldiniz");
-			text.setX(100);
-			text.setY(150);
+			text.setX(10);
+			text.setY(10);
 			text.setFont(Font.font("Verdana",50));
 			text.setFill(Color.BROWN);
 			
 			
-			stage.setFullScreenExitHint("Press q to exit Fullscreen");
-			stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("q"));
+			
 			
 			stage.setScene(scene);
 		    stage.setResizable(false);
 			stage.show();
+			
+			
 
 
 		} catch(Exception e) {
@@ -52,5 +62,9 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		
+		
+		
+		
 	}
 }
