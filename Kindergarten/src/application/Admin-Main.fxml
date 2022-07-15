@@ -93,22 +93,22 @@
                         <Insets />
                      </GridPane.margin>
                   </TableView>
-                  <Button fx:id="btnchangePassword" alignment="CENTER" mnemonicParsing="false" onAction="#changePassword" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Change Password">
+                  <Button fx:id="btnchangePassword" alignment="CENTER" mnemonicParsing="false" onAction="#changePassword" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Passwort ändern">
                      <GridPane.margin>
                         <Insets left="50.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnChangeInfo" alignment="CENTER" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#changeUserInfo" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Change Informations" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="btnChangeInfo" alignment="CENTER" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#changeUserInfo" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Informationen ändern" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="30.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnAddUser" alignment="CENTER" layoutX="40.0" layoutY="47.0" mnemonicParsing="false" onAction="#addUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="add User">
+                  <Button fx:id="btnAddUser" alignment="CENTER" layoutX="40.0" layoutY="47.0" mnemonicParsing="false" onAction="#addUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="User einfügen">
                      <GridPane.margin>
                         <Insets left="250.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnDeleteUser" alignment="CENTER" layoutX="40.0" layoutY="47.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Delete User">
+                  <Button fx:id="btnDeleteUser" alignment="CENTER" layoutX="40.0" layoutY="47.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="User löschen">
                      <GridPane.margin>
                         <Insets left="450.0" />
                      </GridPane.margin>
@@ -133,9 +133,9 @@
                   </ToolBar>
                   <ButtonBar prefHeight="53.0" prefWidth="798.0">
                      <buttons>
-                        <Button fx:id="btnAddStudent" mnemonicParsing="false" onAction="#addStudent" prefHeight="35.0" prefWidth="276.0" style="-fx-background-color: #6DC5DE;" text="Add Student" />
-                        <Button fx:id="btnDeleteStudent" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="34.0" style="-fx-background-color: #6DC5DE;" text="Delete Student" />
-                        <Button fx:id="btnChangeStudent" mnemonicParsing="false" onAction="#changeStudent" prefHeight="33.0" style="-fx-background-color: #6DC5DE;" text="Change Student Informations" />
+                        <Button fx:id="btnAddStudent" mnemonicParsing="false" onAction="#addStudent" prefHeight="35.0" prefWidth="276.0" style="-fx-background-color: #6DC5DE;" text="Student einfügen" />
+                        <Button fx:id="btnDeleteStudent" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="34.0" style="-fx-background-color: #6DC5DE;" text="Student löschen" />
+                        <Button fx:id="btnChangeStudent" mnemonicParsing="false" onAction="#changeStudent" prefHeight="33.0" style="-fx-background-color: #6DC5DE;" text="Informationen ändern" />
                      </buttons>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -152,6 +152,78 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnEltern" prefHeight="383.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="797.6000732421875" minWidth="10.0" prefWidth="797.6000732421875" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.199951171875" minWidth="0.19992675781247726" prefWidth="0.19992675781247726" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="259.8000244140625" minHeight="10.0" prefHeight="129.59999389648436" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="456.79997253417974" minHeight="10.0" prefHeight="401.6000061035157" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView fx:id="elternTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="studentIDColumn" prefWidth="75.0" text="Student ID" />
+                      <TableColumn fx:id="elternNameColumn" prefWidth="120.0" text="Eltern Name" />
+                        <TableColumn fx:id="elternNoColumn" minWidth="20.0" prefWidth="150.0" text="Eltern Tel No" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="studentidTelTextField" maxWidth="150.0" promptText="Student ID:">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="telNoTextField" maxWidth="200.0" promptText="Neue Tel No:">
+                     <GridPane.margin>
+                        <Insets left="200.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button fx:id="telNoButton" mnemonicParsing="false" onAction="#changeTelNo" text="Tel No ändern">
+                     <GridPane.margin>
+                        <Insets left="450.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnPruefungen" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="259.0000061035156" minHeight="10.0" prefHeight="114.20001831054685" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="459.0000061035156" minHeight="10.0" prefHeight="416.5999816894531" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btnDeletePruefung" mnemonicParsing="false" onAction="#deletePruefung" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Prüfung löschen">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="btnAddPruefung" mnemonicParsing="false" onAction="#addPruefung" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Prüfung einfügen">
+                     <GridPane.margin>
+                        <Insets left="200.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <TableView fx:id="pruefungTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="classNoColumn" prefWidth="75.0" text="Class" />
+                      <TableColumn fx:id="lehrfachColumn" prefWidth="75.0" text="Lehrfach" />
+                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="fristButton" mnemonicParsing="false" onAction="#determineFrist" prefHeight="26.0" prefWidth="157.0" text="Prüfung Frist Bestimmen">
+                     <GridPane.margin>
+                        <Insets left="620.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <DatePicker fx:id="fristDatePicker">
+                     <GridPane.margin>
+                        <Insets left="420.0" />
+                     </GridPane.margin>
+                  </DatePicker>
                </children>
             </GridPane>
             <GridPane fx:id="pnZahlungen" style="-fx-background-color: #fff;">
@@ -178,63 +250,6 @@
                       <Button fx:id="addZahlungButton" mnemonicParsing="false" onAction="#addZahlung" text="Bezahlen" />
                     </items>
                   </ToolBar>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnEltern" prefHeight="383.0" style="-fx-background-color: #fff;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="797.6000732421875" minWidth="10.0" prefWidth="797.6000732421875" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.199951171875" minWidth="0.19992675781247726" prefWidth="0.19992675781247726" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="259.8000244140625" minHeight="10.0" prefHeight="129.59999389648436" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="456.79997253417974" minHeight="10.0" prefHeight="401.6000061035157" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <TableView fx:id="elternTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn fx:id="studentIDColumn" prefWidth="75.0" text="Student ID" />
-                      <TableColumn fx:id="elternNameColumn" prefWidth="120.0" text="Eltern Name" />
-                        <TableColumn fx:id="elternNoColumn" minWidth="20.0" prefWidth="150.0" text="Eltern Tel No" />
-                    </columns>
-                  </TableView>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnPruefungen" style="-fx-background-color: #fff;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="259.0000061035156" minHeight="10.0" prefHeight="114.20001831054685" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="459.0000061035156" minHeight="10.0" prefHeight="416.5999816894531" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="btnDeletePruefung" mnemonicParsing="false" onAction="#deletePruefung" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Delete Prüfung">
-                     <GridPane.margin>
-                        <Insets left="10.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button fx:id="btnAddPruefung" mnemonicParsing="false" onAction="#addPruefung" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #6DC5DE;" text="Add Prüfung">
-                     <GridPane.margin>
-                        <Insets left="200.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <TableView fx:id="pruefungTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn fx:id="classNoColumn" prefWidth="75.0" text="Class" />
-                      <TableColumn fx:id="lehrfachColumn" prefWidth="75.0" text="Lehrfach" />
-                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="fristButton" mnemonicParsing="false" onAction="#determineFrist" prefHeight="26.0" prefWidth="157.0" text="Prüfung Frist Bestimmen">
-                     <GridPane.margin>
-                        <Insets left="620.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <DatePicker fx:id="fristDatePicker">
-                     <GridPane.margin>
-                        <Insets left="420.0" />
-                     </GridPane.margin>
-                  </DatePicker>
                </children>
             </GridPane>
          </children>

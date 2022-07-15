@@ -114,7 +114,7 @@ public class Controller implements Initializable{
 		Connection connectDB = connectNow.getConnection();
 		
 		String verifyLogin = "SELECT count(1) FROM users WHERE name = '" + usernameTextField.getText() +"' AND password = '" + passwordPasswordField.getText() + "' AND  role ='" + rolesChoiceBox.getSelectionModel().getSelectedItem() + "'" ;		
-		System.out.println(verifyLogin);
+		
 		try {
 			Statement statement = connectDB.createStatement();
 			ResultSet queryResult = statement.executeQuery(verifyLogin);

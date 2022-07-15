@@ -63,6 +63,8 @@ public class deleteUserController implements Initializable {
 	public void cancelButtonOnAction(ActionEvent e) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(role+"-Main.fxml"));
 		root=loader.load();
+		AdminController lehrerController = loader.getController();
+		lehrerController.handleCancel("Kontos");
 		Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setWidth(1100);

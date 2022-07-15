@@ -49,7 +49,6 @@ public class addStudentController {
 		
 		String addStudentQuery = "INSERT INTO `students`(`studentID`, `name`, `age`, `class`) VALUES ('"+id+"','"+nameTextField.getText()+"','"+ageTextField.getText()+"','"+classTextField.getText()+"')";
 		String addtoNoten = "INSERT INTO `noten`(`studentID`) VALUES ('"+id+"')";
-		//INSERT INTO `noten`(`studentID`) VALUES ('5');
 		String addToEltern = "INSERT INTO `eltern`(`studentID`, `ElternName`, `ElternNo`) VALUES ('"+id+"','"+elternNameTextField.getText()+"','"+elternNoTextField.getText()+"')";
 		String addToanwesenheit = "INSERT INTO `anwesenheit`(`studentid`, `Tagzahl`) VALUES ('"+id+"','0')";
 		String addToZahlung = "INSERT INTO `zahlung`(`studentid`, `gezahltBetrag`, `ungezahltBetrag`) VALUES ('"+id+"','"+"0"+"','"+"3000"+"')";
@@ -61,6 +60,7 @@ public class addStudentController {
 		statement.executeUpdate(addtoNoten);
 		statement.executeUpdate(addToEltern);
 		statement.executeUpdate(addToanwesenheit);
+		statement.executeUpdate(addToZahlung);
 		
 		}
 		catch(Exception exception) {
@@ -70,6 +70,10 @@ public class addStudentController {
 	public void cancelButtonOnAction(ActionEvent e) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(role +"-Main.fxml"));
 		root=loader.load();
+		if(role=="Admin") {
+			AdminController lehrerController = loader.getController();
+			lehrerController.handleCancel("Klassen");
+		}
 		Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setWidth(1100);

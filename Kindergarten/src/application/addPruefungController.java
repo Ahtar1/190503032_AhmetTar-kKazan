@@ -61,6 +61,8 @@ public class addPruefungController implements Initializable {
 	public void cancelButtonOnAction(ActionEvent e) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Admin-Main.fxml"));
 		root=loader.load();
+		AdminController admin = loader.getController();
+		admin.handleCancel("Prüfungen");
 		Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setWidth(1100);

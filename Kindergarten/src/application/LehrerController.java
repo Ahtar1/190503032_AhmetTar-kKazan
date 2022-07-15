@@ -211,30 +211,7 @@ public class LehrerController implements Initializable{
 	
 	
 	
-	//public void displayName(String name) {
-	//	this.name.setText(name);
-	//}
 	
-	//public void displayRole(String role) {
-	//	this.role.setText(role);
-	//}
-	
-	/**public void addStudentButtonOnAction(ActionEvent e) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("addStudent.fxml"));
-		root=loader.load();
-		Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setWidth(700);
-		stage.setHeight(500);
-		stage.setScene(scene);
-		stage.setX(400);
-		stage.setY(200);
-
-		
-		
-		stage.show();
-	}
-	**/
 	
 	@FXML
 	public void handleClicks(ActionEvent event) {
@@ -353,5 +330,24 @@ public class LehrerController implements Initializable{
 	public void setUserName(String username) {
 		// TODO Auto-generated method stub
 		this.username=username;
+	}
+	public void handleCancel(String str) {
+		if(str == "Schüler") {
+			lblStatus.setText("Schüler");
+			pnSchueler.toFront();
+		}
+		if(str == "Lehrplan") {
+			lblStatus.setText("Lehrplan");
+			pnLehrplan.toFront();
+		}
+		if(str == "Noten") {
+			lblStatus.setText("Noten");
+			pnNoten.toFront();
+		}
+		
+		if(str == "Anwesenheit") {
+			lblStatus.setText("Anwesenheit");
+			pnAnwesenheit.toFront();
+		}
 	}
 }

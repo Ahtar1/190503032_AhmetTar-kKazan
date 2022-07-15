@@ -413,18 +413,7 @@ public class DatabaseConnection {
 				Logger.getLogger(LehrerController.class.getName()).log(Level.SEVERE,null,e);
 				e.printStackTrace();
 			}
-		 /**int newNumber = number+1;
-		 String increaseNumberQuery = "UPDATE anwesenheit SET TagZahl ='" +newNumber+"' WHERE studentid ='"+ id +"'";
-		 try {
-				Statement statement = connectDB.createStatement();
-				statement.executeUpdate(increaseNumberQuery);
-				System.out.println(number);
 
-				
-			} catch(SQLException e) {
-				Logger.getLogger(LehrerController.class.getName()).log(Level.SEVERE,null,e);
-				e.printStackTrace();
-			}**/
 		 
 		}
 	 public String getFrist() {

@@ -75,6 +75,8 @@ public class changeLehrplanController implements Initializable {
 	public void cancelButtonOnAction(ActionEvent e) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(role+"-Main.fxml"));
 		root=loader.load();
+		LehrerController lehrerController = loader.getController();
+		lehrerController.handleCancel("Lehrplan");
 		Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setWidth(1100);

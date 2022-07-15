@@ -161,6 +161,14 @@ public class AdminController implements Initializable{
 	private TextField studentidTextField;
 	@FXML
 	private ToolBar toolbar;
+	
+	@FXML
+	private TextField studentidTelTextField;
+	@FXML
+	private TextField telNoTextField;
+	@FXML
+	private Button telNoButton;
+	
 
 	String password;
 	String username;
@@ -229,31 +237,6 @@ FilteredList<StudentSearchModel> filteredData = new FilteredList<>(studentSearch
 	
 	
 	
-	
-	//public void displayName(String name) {
-	//	this.name.setText(name);
-	//}
-	
-	//public void displayRole(String role) {
-	//	this.role.setText(role);
-	//}
-	
-	/**public void addStudentButtonOnAction(ActionEvent e) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("addStudent.fxml"));
-		root=loader.load();
-		Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setWidth(700);
-		stage.setHeight(500);
-		stage.setScene(scene);
-		stage.setX(400);
-		stage.setY(200);
-
-		
-		
-		stage.show();
-	}
-	**/
 	
 	@FXML
 	public void handleClicks(ActionEvent event) {
@@ -467,7 +450,22 @@ FilteredList<StudentSearchModel> filteredData = new FilteredList<>(studentSearch
 			}
 		 return 0;
 	}
+	
+	public void changeTelNo(ActionEvent event) throws IOException {
+		DatabaseConnection connectNow = new DatabaseConnection();
+		Connection connectDB = connectNow.getConnection();
+		String fristQuery = "UPDATE eltern SET ElternNo='"+telNoTextField.getText()+"'WHERE studentID="+studentidTelTextField.getText();
+		try {
+			Statement statement = connectDB.createStatement();
+			statement.executeUpdate(fristQuery);
+			
 
+			
+		} catch(SQLException e) {
+			Logger.getLogger(LehrerController.class.getName()).log(Level.SEVERE,null,e);
+			e.printStackTrace();
+		}
+	}
 
 
 
@@ -478,5 +476,28 @@ FilteredList<StudentSearchModel> filteredData = new FilteredList<>(studentSearch
 	public void setUserName(String username) {
 		// TODO Auto-generated method stub
 		this.username=username;
+	}
+	public void handleCancel(String str) {
+		if(str == "Kontos") {
+			lblStatus.setText("Kontos");
+			pnKontos.toFront();
+		}
+		if(str == "Klassen") {
+			lblStatus.setText("Klassen");
+			pnKlassen.toFront();
+		}
+		
+		if(str == "Eltern") {
+			lblStatus.setText("Eltern");
+			pnEltern.toFront();
+		}
+		if(str == "Prüfungen") {
+			lblStatus.setText("Prüfungen");
+			pnPruefungen.toFront();
+		}
+		if(str == "Zahlungen") {
+			lblStatus.setText("Zahlungen");
+			pnZahlungen.toFront();
+		}
 	}
 }
